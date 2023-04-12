@@ -1,9 +1,44 @@
 package com.pokemon.pokemon.pojo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+
+@Entity
 public class Capacite {
+
+  @Id
+  @SequenceGenerator(name="capacite_seq", sequenceName = "capacite_seq", allocationSize = 1)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "capacite_seq")
+  @Column(name="capicite_id", updatable=false)
   private Long id;
+
   private String libelle;
   private Long puissance;
+
+  @ManyToOne
+  @JoinColumn(name="pokemon_id", nullable = false)
+  private Pokemon pokemon;
+
+  public Capacite() {
+    //needed hibernate
+  }
+
+  public Capacite(Long id, String libelle, Long puissance) {
+    this.id = id;
+    this.libelle = libelle;
+    this.puissance = puissance;
+  }
+
+  public Capacite(String libelle, Long puissance) {
+    this.libelle = libelle;
+    this.puissance = puissance;
+  }
 
   public Long getId() {
     return id;
