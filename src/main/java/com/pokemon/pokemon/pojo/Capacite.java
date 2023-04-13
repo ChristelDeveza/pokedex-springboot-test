@@ -1,5 +1,7 @@
 package com.pokemon.pokemon.pojo;
 
+
+
 public class Capacite {
   private Long id;
   private String libelle;

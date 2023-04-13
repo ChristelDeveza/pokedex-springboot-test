@@ -2,6 +2,7 @@ package com.pokemon.pokemon.pojo;
 
 import java.util.List;
 
+
 public class Pokemon {
   private Long id;
   private String surname;
