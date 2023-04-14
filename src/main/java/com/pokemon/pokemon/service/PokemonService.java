@@ -6,9 +6,9 @@ import com.pokemon.pokemon.pojo.Pokemon;
 
 public interface PokemonService {
   List<Pokemon> getAllPokemon();
-  List<Pokemon> getAllPokemonByName(String name);
+  Pokemon getPokemonById(Long id);
 
-  void updatePokemon(String pokemonName, Pokemon pokemon);
+  void updatePokemon(Long id, Pokemon pokemon);
   void createPokemon(Pokemon pokemon);
-  void deletePokemon(String name);
+  void deletePokemon(Long id);
 }
