@@ -1,8 +1,19 @@
 server:
   port: 5001
-  
+
 spring:
-  mvc:
-    pathmatch:
-      matching-strategy: ANT_PATH_MATCHER
-  
+  # mvc:
+  #   pathmatch:
+  #     matching-strategy: ANT_PATH_MATCHER
+
+  datasource:
+    url: jdbc:postgresql://postgresql-chdprojets.alwaysdata.net/chdprojets_pokedex
+    username: chdprojets_spring
+    password: pokedex
+    # driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
