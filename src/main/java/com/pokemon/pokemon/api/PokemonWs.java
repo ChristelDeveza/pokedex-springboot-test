@@ -11,21 +11,29 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+// import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+import org.thymeleaf.engine.AttributeName;
 
 import com.pokemon.pokemon.pojo.Pokemon;
 import com.pokemon.pokemon.service.PokemonService;
 
-
+//restcontroller ne permet pas de renvoyer du HTML
 @Controller
 @RequestMapping(value=ApiRegistration.REST_PREFIX + ApiRegistration.REST_POKEMON)
 public class PokemonWs {
   
   @Autowired
   private PokemonService service;
+
   @GetMapping
-  public List<Pokemon> getAllPokemon() {
-    return service.getAllPokemon();
+  public ModelAndView getAllPokemon() {
+    ModelAndView modelAndView = new ModelAndView();
+    //TODO
+    modelAndView.setViewName("index.html");
+    modelAndView.addObject("test", "test success");
+    return modelAndView;
+    // return service.getAllPokemon();
   }
 
   @GetMapping("{id}")
